@@ -1,0 +1,94 @@
+{
+    "prenom": {
+        "vide": "Vous devez entrer votre prénom.",
+        "pattern": "Pour le prénom, les accents français, les espaces, les tirets et les apostrophes sont permis."
+    },
+    "nom": {
+        "vide": "Vous devez entrer votre nom de famille.",
+        "pattern": "Pour le nom de famille, les accents français, les espaces, les tirets et les apostrophes sont permis."
+    },
+    "courriel": {
+        "vide": "Vous devez entrer votre adresse courriel.",
+        "pattern": "Assurez-vous d'entrer une adresse courriel valide."
+    },
+    "confirmCourriel": {
+        "vide": "Vous devez confirmer votre adresse courriel.",
+        "pattern": "Le courriel ne correspond au courriel entré plus haut."
+    },
+    "titre": {
+        "vide": "Vous devez entrer votre titre.",
+        "pattern": "Assurez-vous d'entrer un titre valide."
+    },
+    "societe": {
+        "vide": "Vous devez entrer votre entreprise.",
+        "pattern": "Assurez-vous d'entrer une entreprise valide."
+    },
+    "typeTel": {
+        "vide": "Vous devez choisir un type de téléphone.",
+        "pattern": "Assurez-vous d'entrer un type de téléphone."
+    },
+    "numTel": {
+        "vide": "Vous devez entrer votre numéro de téléphone.",
+        "pattern": "Assurez-vous d'entrer un numéro de téléphone."
+    },
+    "adresse": {
+        "vide": "Vous devez entrer votre adresse.",
+        "pattern": "Assurez-vous d'entrer une adresse valide."
+    },
+    "ville": {
+        "vide": "Vous devez entrer votre ville.",
+        "pattern": "Assurez-vous d'entrer une ville valide."
+    },
+    "pays": {
+        "vide": "Vous devez sélectionner un pays."
+    },
+    "province": {
+        "vide": "Vous devez sélectionner une province."
+    },
+    "codePostal": {
+        "vide": "Vous devez entrer un code postal.",
+        "pattern": "Assurez-vous d'entrer un code postal valide."
+    },
+    "paiementNom": {
+        "vide": "Vous devez entrer le nom du détenteur de la carte.",
+        "pattern": "Entrez un nom valide."
+    },
+    "numCarte": {
+        "vide": "Vous devez entrer le numéro de la carte.",
+        "pattern": "Entrez un numéro de carte valide."
+    },
+    "expirationMois": {
+        "vide": "Vous devez sélectionner le mois d'Expiration de la carte."
+    },
+    "expirationAnnee": {
+        "vide": "Vous devez entrer l'année d'expiration de la carte."
+    },
+    "cvv": {
+        "vide": "Vous devez entrer le numéro CVV.",
+        "pattern": "Entrez un numéro numéro CVV valide."
+    },
+    "banque": {
+        "vide": "Vous devez sélectionner une banque."
+    },
+    "numTransit": {
+        "vide": "Vous devez entrer le numéro de transit.",
+        "pattern": "Entrez un numéro de transit."
+    },
+    "numInstitution": {
+        "vide": "Vous devez entrer le numéro d'institution.",
+        "pattern": "Entrez un numéro d'institution."
+    },
+    "numCompte": {
+        "vide": "Vous devez entrer le numéro de compte.",
+        "pattern": "Entrez un numéro de compte."
+    },
+    "typeDon": {
+        "vide": "Vous devez choisir le type de don que vous souhaitez faire."
+    },
+    "montantDon": {
+        "vide": "Vous devez choisir le montant du don que vous souhaitez faire."
+    },
+    "message": {
+        "vide": "Entrez un message."
+    }
+}

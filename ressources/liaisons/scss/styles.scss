@@ -1,0 +1,626 @@
+@charset "UTF-8";
+
+/**
+ * @author Prenom Nom courriel
+ * @todo Lier les modules avec des instructions @import
+ * @todo Compléter selon l'énoncé de l'exercice
+ */
+
+/*
+ * ------------------
+ * TABLE DES MATIERES
+ * ------------------
+ * Librairies
+ ** Normalize
+
+
+
+ * UTILITAIRES
+ ** Variables
+ ** Mixins
+ * BASE
+ ** Typographie
+ ** Hyperliens
+ ** Boutons
+ * MODULES
+ ** gds - Styles généraux du Guide de styles
+ ** palette - Palette de couleurs
+ ** listeInteractivite - Éléments interactifs
+ */
+
+/****** Librairies ******/
+
+/** Normalize **/
+@import "../../../node_modules/normalize.scss/normalize.scss";
+
+/**** UTILITAIRES ****/
+
+/** Variables **/
+@import 'utilitaires/variables';
+
+/** Mixins **/
+@import 'utilitaires/mixins';
+
+/****** BASE ******/
+
+/** Typographie **/
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap');
+@import 'base/typo';
+
+
+/** Hyperliens **/
+@import 'base/hyperlien';
+
+/** Boutons **/
+@import 'base/bouton';
+
+/** Grilles **/
+@import 'base/grille';
+
+
+
+//** Screen-reader-only
+.screen-reader-only{
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+.screen-reader-only.focusable:active,
+.screen-reader-only.focusable:focus{
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+
+
+/****** MODULES ******/
+html{
+  margin: 0 0;
+  height: fit-content;
+  width: 100%;
+}
+
+.body{
+  margin: 0 0;
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.menu{
+  height: 4em;
+}
+.header{
+  //background-image: url("public/liaisons/images/image_entete.jpg");
+  background-image: url("../images/image_entete.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 300px;
+  //width: 100vw;
+  max-width: 100%;
+  @media (min-width: 500px) {
+    height: 40vh;
+  }
+}
+
+
+//TITRES
+h1{
+  color: black;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  margin: 1em 0;
+}
+h2{
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
+h3{
+  color: black;
+  font-size: 1.1em;
+}
+.titre{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.titre__img{
+  width: 40px;
+  height: 40px;
+  display: inline-block;
+}
+
+//HAUT DE PAGE
+.menu{
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @media (min-width: 600px) {
+    height: 100px;
+  }
+  &__img{
+    display: inline-block;
+    margin-left: 10px;
+  }
+  &__btn{
+    margin-right: 10px;
+    background-color: transparent;
+    color: $brun;
+    border: none;
+  }
+}
+
+
+//***FORMAT DE BASE***
+//BOUTONS POUR CHANGER D'ÉTAPE (don, donateur, paiement, récapitulatif)
+.ctn_boutons{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  @media (min-width: 600px) {
+    display: unset;
+  }
+}
+
+// BOUTONS RADIO
+.typeDon,
+.typeDonateur,
+.typePaiement
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media(min-width: 600px){
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+input[type=radio]+label{
+  border: solid 1px $brun;
+}
+input[type=radio]:checked+label{
+  background-color: $brun;
+  color: $blanc;
+  font-weight: bold;
+}
+.btnRadio{
+  &--court{
+    display: inline-block;
+    width: 7em;
+    height: 3em;
+    line-height: 3em;
+    text-align: center;
+    padding: .5em .5em;
+    margin: .3em .3em;
+    @media (min-width: 600px) {
+      width: 5em;
+      margin: 0 .5em;
+      max-width: 10em;
+    }
+  }
+  &--long{
+    width: 10em;
+    height: 3em;
+    line-height: 3em;
+    text-align: center;
+    padding: 1em 1em;
+    margin: .5em 0;
+    @media (min-width: 600px) {
+      margin: 0 .5em;
+      max-width: 10em;
+    }
+  }
+}
+
+//CHAMP TEXTE
+input[class^="champ"]{
+  display: block;
+}
+
+.champTexte{
+  border: none;
+  border-bottom: solid black 1px;
+  height: 2em;
+  line-height: 2em;
+  width: 90%;
+  @media(min-width: 600px){
+    max-width: 80%;
+  }
+  &--court{
+    border: none;
+    border-bottom: solid black 1px;
+    height: 2em;
+    line-height: 2em;
+    width: 4em;
+  }
+  &--moyen{
+    border: none;
+    border-bottom: solid black 1px;
+    height: 2em;
+    line-height: 2em;
+    max-width: 70%;
+  }
+}
+
+//LISTE DÉROULANTE
+.champSelect{
+  padding: 1.2em;
+  width: 10em;
+  height: 1.5em;
+  &--court{
+    padding: 1.2em;
+    width: 15em;
+    height: 2em;
+  }
+}
+
+//AUTRE DON: MONTANT À RENTRER
+.autreDon__inputInsertionDon{
+  width: 6em;
+  font-size: 1.3em;
+  & > span{
+    font-size: 1.3em;
+  }
+}
+
+.informationDonateur .profil fieldset,
+.informationDonateur .adresse fieldset{
+  width: 100%
+}
+.informationDonateur .profil,
+.informationDonateur .adresse{
+  border: $brun solid 1px;
+}
+
+//FORMULAIRE
+form,
+.don,
+.donateur,
+.paiement,
+.recapitulatif{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  border: none;
+  border-bottom: $brun dashed 1px ;
+  max-width: 100%;
+}
+.don,
+.donateur,
+.paiement,
+/*.recapitulatif*/ {
+  border: $brun solid 1.3px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.1) 3px 3px;
+  max-width: 100%;
+}
+.btnEtapeSuivante:nth-child(1),
+.btnEtapeSuivante:nth-child(4){
+
+  display: inline-block;
+  align-self: flex-start;
+  align-items: flex-start;
+}
+
+
+//Gestion des fieldsets
+fieldset fieldset{
+  border: none;
+}
+
+// DON
+.montantDon{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 100%;
+  @media (min-width: 600px) {
+    flex-wrap: nowrap;
+  }
+}
+.montantDon>fieldset{
+  width: fit-content;
+  margin: 0 0;
+  flex: 0 1 45%;
+  @media (min-width: 600px) {
+    flex: 0 1 20%;
+  }
+}
+.don__retroaction,
+.prelevementBancaire__numCompteChoix,
+.carteCredit__retroaction{
+  color: #AE2626;
+}
+
+//DONATEUR
+.informationDonateur{
+  & fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+  & .donEntreprise fieldset{
+    width: 100%;
+  }
+  & .profil__titre,
+  & .adresse__titre{
+    padding: .5em .5em;
+    font-size: 1.3em;
+  }
+}
+
+//PAIEMENT
+.prelevementBancaire fieldset,
+.carteCredit fieldset{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.recapDon,
+.recapDonateur,
+.recapPaiement{
+  border: black 1px solid;
+}
+
+.recapDon legend,
+.recapDonateur legend,
+.recapPaiement legend{
+  font-size: 1.3em;
+  color: $brun;
+}
+
+//Carte de crédit
+.carteCredit fieldset:nth-child(3){
+  display: unset;
+}
+
+//Paypal
+.paypal{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  &__img{
+    display: inline-block;
+    width: 60%;
+    @media (min-width: 600px) {
+      width: 45%;
+    }
+  }
+  &__lien{
+    display: inline-block;
+  }
+}
+
+//Prélèvement bancaire
+.paysProvince,
+.telephone{
+  @media (min-width: 600px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+}
+
+//Aligner à gauche le bouton suivant des parties : Don et Récapitulatif
+.don .btnEtapeSuivante,
+.recapitulatif .btnEtapePrecedente,
+.recapitulatif .btnEtapeSuivante{
+  align-self: flex-start;
+}
+
+
+// Récapitulatif
+.recapitulatif .recapDon p:nth-child(even),
+.recapitulatif .recapDonateur p:nth-child(even),
+.recapitulatif .recapPaiement fieldset p:nth-child(even),
+.recapitulatif .recapPaiement div p:nth-child(odd),{
+  font-weight: 100;
+}
+
+.ctn_recap{
+  margin: 0.2em 0;
+  padding-left: 0;
+  @media (min-width: 600px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  & p{
+    padding: 0 0;
+    margin: 0 .3em;
+  }
+
+}
+
+.recapitulatif .recapDon p:nth-child(even),
+.recapitulatif .recapDonateur .ctn_recap p:nth-child(odd),
+.recapitulatif .recapPaiement p:nth-child(1),
+.recapitulatif .recapPaiement fieldset p:nth-child(odd){
+  font-weight: bold;
+}
+
+
+//VÉRIFICATION DU FORMULAIRE
+//Erreur
+.erreur{
+  border: #AE2626 solid 3px;
+}
+.retroactionErreur,
+.labelErreur{
+  color: #AE2626;
+  font-weight: bold;
+}
+
+
+//Cacher une partie
+.cache{
+  display: unset;
+  visibility: hidden;
+  height: 1px;
+}
+
+
+// Effets changement de page
+.entreeSuivant{
+  animation: fadeInRight;
+  animation-duration: .7s;
+  animation-direction: normal;
+}
+
+.entreePrecedent{
+  animation: fadeInLeft;
+  animation-duration: .7s;
+  animation-direction: normal;
+}
+
+
+p img{
+  height: 20px;
+  width: 20px;
+}
+
+
+
+
+//BARRE DE PROGRESSION - https://codepen.io/jidelambo/pen/RaRygY */
+/*Début*/
+.progression {
+  counter-reset: step;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.progression li {
+  list-style: none;
+  display: inline-block;
+  width: 20%;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+}
+.progression li:nth-child(1):before {
+  content: "1";
+}
+.progression li:nth-child(2):before {
+  content: "2";
+}
+.progression li:nth-child(3):before {
+  content: "3";
+}
+.progression li:nth-child(4):before {
+  content: "4";
+}
+.progression li:before {
+  width: 45px;
+  height: 45px;
+  line-height : 45px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  display: block;
+  text-align: center;
+  margin: 0 auto 10px auto;
+  background-color: $blanc;
+  color: $vertPale;
+  @media (min-width: 600px) {
+    width: 70px;
+    height: 70px;
+    line-height : 70px;
+  }
+}
+.progression li:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #ddd;
+  top: 35%;
+  left: -50%;
+  z-index : -1;
+}
+.progression li:first-child:after {
+  content: none;
+}
+
+.progression li.rempli {
+  content: "✔";
+  color: $vertFonce;
+  font-weight: bold;
+}
+.progression li.rempli:before {
+  content: "✔";
+  color: $blanc;
+  font-weight: bold;
+  font-size: 1em;
+  background-color: $vertFonce;
+  border-color: $vertFonce;
+  @media (min-width: 600px) {
+    font-size: 2em;
+  }
+}
+.progression li.rempli + li:after {
+  background-color: $vertFonce;
+}
+
+.progression li.enCours {
+  color: $vertFonce;
+  font-weight: bold;
+}
+.progression li.enCours:before {
+  color: $vertFonce;
+  font-weight: bold;
+  font-size: 1em;
+  background-color: $blanc;
+  border: $vertFonce solid 2px;
+  @media (min-width: 600px) {
+    font-size: 1.5em;
+  }
+}
+.progression li.enCours + li:after {
+  background-color: #dddddd;
+}
+/***Fin***/
+
+
+//BAS DE PAGE
+.footer{
+  background-color: $vertFonce;
+  color: $blanc;
+  padding: 1em 0 1em 0;
+  &__copyright{
+    text-align: center;
+  }
+  &__p{
+    text-align: center;
+}
+}
+
