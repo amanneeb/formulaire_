@@ -154,7 +154,7 @@
                         </fieldset>
 
                         <fieldset class="essai">
-                            <label class="informationDonateur__numTelLabel" for="numTel">Numéro de téléphone <i>(format: 123-456-7890)</i></label>
+                            <label class="informationDonateur__numTelLabel" for="numTel">Numéro de téléphone <i>(123-456-7890)</i></label>
                             <input class="informationDonateur__numTelInput champTexte" type="text" id="numTel" name="numTel" pattern="^[0-9]{3}-{1}[0-9]{3}-{1}[0-9]{4}$" aria-describedby="numTelDonateur__retro" autocomplete="tel" required>
                             <span class="span"></span>
                             <p class="numTelDonateur__retro" id="numTelDonateur__retro" role="alert"></p>
@@ -165,7 +165,7 @@
                         <legend class="adresse__titre">Adresse</legend>
                         <fieldset class="essai">
                             <label class="informationDonateur__adresseLabel" for="adresse">Adresse</label>
-                            <input class="informationDonateur__adresseInput champTexte" type="text" id="adresse" name="adresse" pattern="^[A-Za-zéèëïöü\-]+$" aria-describedby="adresseDonateur__retro" autocomplete="adress" required>
+                            <input class="informationDonateur__adresseInput champTexte" type="text" id="adresse" name="adresse" pattern="^[A-Za-zéèëïöü\-]+$" aria-describedby="adresseDonateur__retro" required>
                             <span class="span"></span>
                             <p class="adresseDonateur__retro" id="adresseDonateur__retro" role="alert"></p>
                         </fieldset>
@@ -185,7 +185,7 @@
                             <fieldset class="essai">
                                 <label class="informationDonateur__provinceLabel" for="province">Province</label>
                                 <select class="informationDonateur__provinceSelect champSelect" id="province" name="province" aria-describedby="paysDonateur__retro" aria-required="true">
-                                    <option value="0"></option>
+                                    <option label="vide" value="0"></option>
                                     <option value="Québec">Québec</option>
                                     <option value="Ontario">Ontario</option>
                                     <option value="Colombie-Britannique">Colombie-Britannique</option>
@@ -497,6 +497,7 @@
 
 	<footer class="footer" role="contentinfo">
 	    <p class="footer__copyright">© <time>2023</time> - Anaïs Mannée-Batschy</p>
+	    <p class="footer__p">Photo de <a class="footer__lien" href="https://unsplash.com/fr/@jmuniz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joel Muniz</a> sur <a class="footer__lien" href="https://unsplash.com/fr/photos/3k3l2brxmwQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
 		<p class="footer__p">Réalisé dans le cadre du cours de Réalisations de produits numériques interactifs 3
            <br>Cégep de Sainte-Foy</p>
 	</footer>
