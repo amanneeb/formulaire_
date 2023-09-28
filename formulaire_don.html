@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="liaisons/css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  <title>Formulaire - Don</title>
+</head>
+
+<body class="body">
+    <a href="#contenu" class="visuallyhidden focusable">Allez au contenu</a>
+	<header role="banner">
+	<nav class="menu" role="navigation">
+        <img class="menu__img" src="liaisons/images/logo_petitFormat.svg" width="100" alt="">
+        <button class="menu__btn">Menu</button>
+	</nav>
+	<div class="header"></div>
+	</header>
+
+	<main class="conteneur" role="main">
+	    <h1 class="header__titre">Faire un don</h1>
+		<form class="formulaire" action="confirmation.html" role="form">
+		        <nav class="navigation" role="navigation">
+		            <ul class="progression">
+		                <li class="progression__don enCours">Don</li>
+		                <li class="progression__donateur ">Donateur</li>
+		                <li class="progression__paiement ">Paiement</li>
+		                <li class="progression__recap">Récapitulatif</li>
+		            </ul>
+                </nav>
+                <fieldset class="don" id="sectionDon">
+                    <div class="titre">
+                        <img class="titre__img" src="./liaisons/images/don.svg" alt="">
+                        <h2 class="don__titre">Don</h2>
+                    </div>
+
+                    <fieldset class="typeDon" aria-required="true" role="radiogroup" aria-describedby="retro__boutons">
+                        <legend class="don__question">Quel type de don souhaitez-vous faire?</legend>
+                        <input class="typeDon__inputUnique screen-reader-only" type="radio" name="typeDon" id="donUnique">
+                        <label class="typeDon__labelUnique btnRadio--long" for="donUnique">Don unique</label>
+
+                        <input class="typeDon__inputMensuel screen-reader-only" type="radio" name="typeDon" id="donMensuel">
+                        <label class="typeDon__labelMensuel btnRadio--long" for="donMensuel">Don mensuel</label>
+
+                        <input class="typeDon__inputMemoriam screen-reader-only" type="radio" name="typeDon" id="donMemoriam">
+                        <label class="typeDon__labelMemoriam btnRadio--long" for="donMemoriam">Don in memoriam</label>
+                    </fieldset>
+
+                    <fieldset class="montantDon" aria-required="true" role="radiogroup" aria-describedby="retro__boutons">
+                        <legend class="don__question">Quel montant souhaitez-vous donner?</legend>
+                        <fieldset class="cinquante">
+                            <input type="radio" class="montantDon__inputCinquante screen-reader-only" name="montantDon" id="50" >
+                            <label class="montantDon__labelCinquante btnRadio--court" for="50">50$</label>
+                        </fieldset>
+
+                        <fieldset class="cent">
+                            <input class="montantDon__inputCent screen-reader-only" type="radio" name="montantDon" id="100" >
+                            <label class="montantDon__labelCent btnRadio--court" for="100">100$</label>
+                        </fieldset>
+
+                        <fieldset class="deuxCents">
+                            <input class="montantDon__inputDeuxCents screen-reader-only" type="radio" name="montantDon" id="200" >
+                            <label class="montantDon__labelDeuxCents btnRadio--court" for="200">200$</label>
+                        </fieldset>
+
+                        <fieldset class="cinqCents">
+                            <input class="montantDon__inputCinqCents screen-reader-only" type="radio" name="montantDon" id="500" >
+                            <label class="montantDon__labelCinqCents btnRadio--court" for="500">500$</label>
+                        </fieldset>
+
+                        <fieldset class="autreDon">
+                            <input class="montantDon__inputAutre screen-reader-only" type="radio" name="montantDon" id="autre" >
+                            <label class="montantDon__labelAutre btnRadio--court" for="autre">Autre</label>
+                        </fieldset>
+                    </fieldset>
+                    <fieldset class="autreDonChamp screen-reader-only">
+                        <label class="autreDon__insertionDon" for="montantDon">Entrez le montant de votre don</label> <br>
+                        <input class="autreDon__inputInsertionDon champTexte--court" type="text" id="montantDon" pattern="^[0-9]{1,5}$" autocomplete="transaction-amount"><span>$</span>
+                    </fieldset>
+                    <fieldset>
+                        <input class="don__fraisAdminInput" type="checkbox" id="fraisAdmin">
+                        <label class="don__fraisAdminLabel" for="fraisAdmin">Je souhaite couvrir les frais d'administration de 3$.</label>
+                    </fieldset>
+                    <span class="don__span"></span>
+                    <p class="don__retroaction" id="retro__boutons" role="alert"></p>
+                    <button class="btnEtapeSuivante versEtapeDeux btnSuivantDon" type="button" id="versEtapeDeux"> Étape 2 </button>
+                </fieldset>
+
+                <fieldset class="donateur screen-reader-only" id="sectionDonateur">
+                    <div class="titre">
+                        <img class="titre__img" src="./liaisons/images/donateur.svg" alt="">
+                        <h2 class="don__titre">Donateur</h2>
+                    </div>
+                    <fieldset class="typeDonateur" role="radiogroup" aria-required="true">
+                        <input class="donateur__individuInput screen-reader-only" type="radio" name="typeDonateur" id="individu" checked>
+                        <label class="donateur__individuLabel btnRadio--long" for="individu">Individu</label>
+
+                        <input class="donateur__entrepriseInput screen-reader-only" type="radio" name="typeDonateur" id="entreprise">
+                        <label class="donateur__entrepriseLabel btnRadio--long" for="entreprise">Entreprise</label>
+                    </fieldset>
+
+                    <fieldset class="informationDonateur">
+                    <fieldset class="profil">
+                    <legend class="profil__titre">Profil</legend>
+                    <fieldset class="essai">
+                        <label class="informationDonateur__nomLabel" for="nom">Nom</label>
+                        <input class="informationDonateur__nomInput champTexte" type="text" name="nom"  id="nom" pattern="^[A-Za-zéèëïöü\-]+$" aria-describedby="nomDonateur__retro" autocomplete="family-name" required>
+                        <span class="span"></span>
+                        <p class="nomDonateur__retro" id="nomDonateur__retro" role="alert"></p>
+                    </fieldset>
+
+                    <fieldset class="nomDonateur essai">
+                          <label class="informationDonateur__prenomLabel" for="prenom">Prénom</label>
+                          <input class="informationDonateur__prenomInput champTexte" type="text" name="prenom" id="prenom" pattern="^[A-Za-zéèëïöü\-]+$" aria-describedby="prenomDonateur__retro" autocomplete="given-name" required>
+                          <span class="span"></span>
+                          <p class="prenomDonateur__retro" id="prenomDonateur__retro" role="alert"></p>
+                    </fieldset>
+                    <fieldset class="essai">
+                        <label class="informationDonateur__courrielLabel" for="courriel">Courriel</label>
+                        <input class="informationDonateur__courrielInput champTexte" type="email" name="courriel" id="courriel" pattern="^[A-Za-z\-_]+(@){1}(.)+$" aria-describedby="courrielDonateur__retro" autocomplete="email" required>
+                        <span class="span"></span>
+                        <p class="courrielDonateur__retro" id="courrielDonateur__retro" role="alert"></p>
+                    </fieldset>
+
+                    <fieldset class="donEntreprise screen-reader-only">
+                        <fieldset class="essai">
+                            <label class="donEntreprise__titreLabel" for="titre">Titre</label>
+                            <input class="donEntreprise__titreInput champTexte" type="text" id="titre" name="titre" pattern="^[A-Za-zéèëïöü\-]+$" aria-describedby="titreDonateur__retro"  autocomplete="organization-title">
+                            <span class="span"></span>
+                            <p class="titreDonateur__retro" id="titreDonateur__retro" role="alert"></p>
+                        </fieldset>
+                        <fieldset class="essai">
+                            <label class="donEntreprise__societeLabel" for="societe">Entreprise</label>
+                            <input class="donEntreprise__societeInput champTexte" type="text" id="societe" name="societe" pattern="^[A-Za-zéèëïöü\-]+$" aria-describedby="societeDonateur__retro" autocomplete="organization">
+                            <span class="span"></span>
+                            <p class="societeDonateur__retro" id="societeDonateur__retro" role="alert"></p>
+                        </fieldset>
+                    </fieldset>
+
+                    <div class="telephone">
+                        <fieldset class="essai">
+                            <label class="informationDonateur__typeTelLabel" for="typeTel">Type de téléphone</label>
+                            <select class="informationDonateur__typeTelSelect champSelect" id="typeTel" name="typeTel" aria-describedby="typeTelDonateur__retro">
+                                <optgroup label="Sélectionner un type de téléphone">
+                                    <option value="Cellulaire" >Cellulaire</option>
+                                    <option value="Domicile">Domicile</option>
+                                    <option value="Travail">Travail</option>
+                                </optgroup>
+                            </select>
+                            <span class="span"></span>
+                            <p class="typeTelDonateur__retro" id="typeTelDonateur__retro" role="alert"></p>
+                        </fieldset>
+
+                        <fieldset class="essai">
+                            <label class="informationDonateur__numTelLabel" for="numTel">Numéro de téléphone <i>(123-456-7890)</i></label>
+                            <input class="informationDonateur__numTelInput champTexte" type="text" id="numTel" name="numTel" pattern="^[0-9]{3}-{1}[0-9]{3}-{1}[0-9]{4}$" aria-describedby="numTelDonateur__retro" autocomplete="tel" required>
+                            <span class="span"></span>
+                            <p class="numTelDonateur__retro" id="numTelDonateur__retro" role="alert"></p>
+                        </fieldset>
+                    </div>
+                    </fieldset>
+                    <fieldset class="adresse">
+                        <legend class="adresse__titre">Adresse</legend>
+                        <fieldset class="essai">
+                            <label class="informationDonateur__adresseLabel" for="adresse">Adresse</label>
+                            <input class="informationDonateur__adresseInput champTexte" type="text" id="adresse" name="adresse" pattern="^[A-Za-zéèëïöü\-]+$" aria-describedby="adresseDonateur__retro" required>
+                            <span class="span"></span>
+                            <p class="adresseDonateur__retro" id="adresseDonateur__retro" role="alert"></p>
+                        </fieldset>
+                        <div class="paysProvince">
+                            <fieldset class="essai">
+                                <label class="informationDonateur__paysLabel" for="pays">Pays</label>
+                                <select class="informationDonateur__paysSelect champSelect" id="pays" name="pays" aria-describedby="paysDonateur__retro" autocomplete="country" aria-required="true">
+                                    <optgroup label="Sélectionner un pays">
+                                        <option value="Canada">Canada</option>
+                                        <option value="États-Unis">États-Unis</option>
+                                    </optgroup>
+                                </select>
+                                <span class="span"></span>
+                                <p class="paysDonateur__retro" id="paysDonateur__retro" role="alert"></p>
+                            </fieldset>
+
+                            <fieldset class="essai">
+                                <label class="informationDonateur__provinceLabel" for="province">Province</label>
+                                <select class="informationDonateur__provinceSelect champSelect" id="province" name="province" aria-describedby="paysDonateur__retro" aria-required="true">
+                                    <option label="vide" value="0"></option>
+                                    <option value="Québec">Québec</option>
+                                    <option value="Ontario">Ontario</option>
+                                    <option value="Colombie-Britannique">Colombie-Britannique</option>
+
+                                </select>
+                                <span class="span"></span>
+                                <p class="provinceDonateur__retro" id="provinceDonateur__retro" role="alert"></p>
+                            </fieldset>
+                        </div>
+
+                        <fieldset class="essai">
+                            <label class="informationDonateur__codePostalLabel" for="codePostal">Code postal<i class="informationDonateur__codePostalLabelInfo"></i></label>
+                            <input class="informationDonateur__codePostalInput champTexte--moyen" type="text" id="codePostal" name="codePostal" pattern="^([A-Za-z][0-9][A-Za-z])([0-9][A-Za-z][0-9])$" aria-describedby="codePostalDonateur__retro" autocomplete="postal-code" required>
+                            <span class="span"></span>
+                            <p class="codePostalDonateur__retro" id="codePostalDonateur__retro" role="alert"></p>
+                        </fieldset>
+
+                        <fieldset class="essai">
+                            <label class="informationDonateur__villeLabel" for="ville">Ville</label>
+                            <input class="informationDonateur__villeInput champTexte" type="text" name="ville" id="ville" pattern="^[A-Za-zéèëïöü\-]+$" aria-describedby="villeDonateur__retro" required>
+                            <span class="span"></span>
+                            <p class="villeDonateur__retro" id="villeDonateur__retro" role="alert"></p>
+                        </fieldset>
+                    </fieldset>
+                    <p class="informationDonateur__retroGenerale"></p>
+                        <input class="informationDonateur__nouvellesCheckbox" type="checkbox" id="nouvelles">
+                        <label class="informationDonateur__nouvellesLabel" for="nouvelles">Je souhaite recevoir l'infolettre de l'organisme.</label>
+                        <br/>
+                        <p class="donateur__retroaction"></p>
+                        <div class="ctn_boutons" >
+                            <button class="btnEtapePrecedente" type="button" id="retourEtapeUn"> Étape 1 </button>
+                            <button class="btnEtapeSuivante versEtapeTrois btnSuivantDonateur" type="button" id="versEtapeTrois"> Étape 3 </button>
+                        </div>
+                    </fieldset>
+
+                </fieldset>
+
+                <fieldset class="paiement screen-reader-only" id="sectionPaiement">
+                    <div class="titre">
+                        <img class="titre__img" src="./liaisons/images/paiement.svg" alt="">
+                        <h2 class="don__titre">Paiement</h2>
+                    </div>
+
+                    <fieldset class="typePaiement" role="radiogroup" aria-required="true">
+                        <input class="paiement__carteCreditInput screen-reader-only" type="radio" name="choixPaiement" id="carteCredit" checked>
+                        <label class="paiement__carteCreditLabel btnRadio--long" for="carteCredit">Carte de crédit</label>
+
+                        <input class="paiement__paypal screen-reader-only" type="radio" name="choixPaiement" id="paypal">
+                        <label class="paiement__paypal btnRadio--long" for="paypal">Paypal</label>
+
+                        <input class="paiement__prelevementBancaire screen-reader-only" type="radio" name="choixPaiement" id="prelevementBancaire">
+                        <label class="paiement__paypal btnRadio--long" for="prelevementBancaire">Prélèvement bancaire</label>
+                    </fieldset>
+
+                    <fieldset class="carteCredit">
+                    <fieldset>
+                        <label class="carteCredit__nomLabel" for="paiementNom">Nom</label>
+                        <input class="carteCredit__nomInput champTexte" type="text" name="paiementNom"  id="paiementNom" pattern="^[A-Za-zéèëïöü\-]+$" aria-describedby="paiementNom__retro" autocomplete="cc-name">
+                        <span class="span"></span>
+                        <p class="carteCredit__paiementNomRetroaction" id="paiementNom__retro" role="alert"></p>
+                    </fieldset>
+                    <fieldset>
+                        <label class="carteCredit__numCarteLabel" for="numCarte">Numéro de la carte</label>
+                        <input class="carteCredit__numCarteInput champTexte" type="text" name="numCarte" id="numCarte" pattern="^[0-9]{16}$" aria-describedby="numCarte__retro" autocomplete="cc-number">
+                        <span class="span"></span>
+                        <p class="carteCredit__numCarteRetroaction" id="numCarte__retro" role="alert"></p>
+                    </fieldset>
+                    <fieldset>
+                        <label class="carteCredit__expirationLabel" for="expirationMois">Date d'expiration</label><br/>
+                        <select class="carteCredit__expirationMoisSelect champSelect--court" name="expirationMois" id="expirationMois" aria-describedby="expirationMois__retro" autocomplete="cc-exp-month">
+                            <optgroup label="Sélectionner le mois d'expiration">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </optgroup>
+                        </select>
+                        <span class="span"></span>
+                        <p class="carteCredit__expirationMoisRetroaction" id="expirationMois__retro" role="alert"></p>
+                        <select class="carteCredit__expirationAnneeSelect champSelect--court" name="expirationAnnee" id="expirationAnnee" aria-describedby="expirationAnnee__retro" autocomplete="cc-exp-year">
+                            <optgroup label=" ">
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                                <option value="2031">2031</option>
+                                <option value="2032">2032</option>
+                            </optgroup>
+                        </select>
+                        <span class="span"></span>
+                        <p class="carteCredit__expirationAnneeRetroaction" id="expirationAnnee__retro" role="alert"></p>
+                    </fieldset>
+                    <fieldset>
+                        <label class="carteCredit__cvvLabel" for="cvv">CVV</label>
+                        <input class="carteCredit__cvvInput champTexte--court" type="text" name="cvv" id="cvv" pattern="^[0-9]{3}$" aria-describedby="cvv__retro" autocomplete="cc-csc">
+                        <span class="span"></span>
+                        <p class="carteCredit__cvvRetroaction" id="cvv__retro" role="alert"></p>
+                    </fieldset>
+
+                    <div class="ctn_boutons">
+                        <p class="carteCredit__retroaction"></p>
+                        <button class="btnEtapePrecedente" type="button" id="retourEtapeDeuxI"> Étape 2 </button>
+                        <button class="btnEtapeSuivante versEtapeQuatre" type="button" id="versEtapeQuatreI"> Payer </button>
+                    </div>
+                </fieldset>
+
+                    <fieldset class="paypal screen-reader-only">
+                        <img class="paypal__img" src="./liaisons/images/paypal.svg" alt="paypal"><br/>
+                        <a class="paypal__lien hyperlien" href="#recapitulatif">Accédez à votre compte Paypal pour finaliser la transaction >></a>
+                    </fieldset>
+
+                    <fieldset class="prelevementBancaire screen-reader-only">
+                        <fieldset>
+                            <label class="prelevementBancaire__banqueLabel" for="banque">Institution financière</label><br/>
+                            <select class="prelevementBancaire__banqueSelect champSelect" name="banque" id="banque" aria-describedby="banque__retro">
+                                <optgroup label=" ">
+                                    <option value="Desjardins">Desjardins</option>
+                                    <option value="Banque nationale du Canada">Banque nationale du Canada (BNC) </option>
+                                    <option value="Banque TD">Banque TD</option>
+                                    <option value="Banque canadienne impériale de commerce">Banque canadienne impériale de commerce (CIBC) </option>
+                                    <option value="Banque royale du Canada">Banque royale du Canada (RBC) </option>
+                                </optgroup>
+                            </select>
+                            <span class="span"></span>
+                            <p class="prelevementBancaire__banqueInputRetroaction" id="banque__retro" role="alert"></p>
+                        </fieldset>
+                        <fieldset>
+                            <label class="prelevementBancaire__numTransitLabel" for="numTransit">Numéro de transit</label>
+                            <input class="prelevementBancaire__numTransitInput champTexte--moyen" type="text" name="numTransit" id="numTransit" pattern="^[0-9]{5}$" aria-describedby="transit__retro">
+                            <span class="span"></span>
+                            <p class="prelevementBancaire__numTransitChoix" id="transit__retro" role="alert"></p>
+                        </fieldset>
+                        <fieldset>
+                            <label class="prelevementBancaire__numBancaireLabel" for="numInstitution">Numéro d'institution</label>
+                            <input class="prelevementBancaire__numBancaireInput champTexte--moyen" type="text" name="numInstitution" id="numInstitution" pattern="^[0-9]{3}$" aria-describedby="institution__retro">
+                            <span class="span"></span>
+                            <p class="prelevementBancaire__numBancaireChoix" id="institution__retro" role="alert"></p>
+                        </fieldset>
+                        <fieldset>
+                            <label class="prelevementBancaire__numCompteLabel" for="numCompte">Numéro de compte</label>
+                            <input class="prelevementBancaire__numCompteInput champTexte--moyen" type="text" name="numCompte" id="numCompte" pattern="^[0-9]{7}$" aria-describedby="compte__retro">
+                            <span class="span"></span>
+                            <p class="prelevementBancaire__numCompteChoix" id="compte__retro" role="alert"></p>
+                        </fieldset>
+                        <img class="prelevementBancaire__specimen" src="" alt="specimen de chèque"><br/>
+                        <div class="ctn_boutons">
+                            <p class="prelevementBancaire__retroaction"></p>
+                            <button class="btnEtapePrecedente" type="button" id="retourEtapeDeuxII">Étape 2</button>
+                            <button class="btnEtapeSuivante btnSuivantPaiement versEtapeQuatre" type="button" id="versEtapeQuatreII">Payer</button>
+                        </div>
+                    </fieldset>
+
+                </fieldset>
+                <fieldset class="recapitulatif screen-reader-only">
+                    <div class="titre">
+                        <img class="titre__img" src="./liaisons/images/recapitulatif.svg" alt="">
+                        <h2 class="don__titre">Récapitulatif</h2>
+                    </div>
+                    <fieldset class="recapDon">
+                        <legend class="recapDon__titre">Don</legend>
+                        <p class="recapDon__typeDon">Quel type de don souhaitez-vous faire?</p>
+                        <p class="recapDon__typeDonChoix"></p>
+                        <p class="recapDon__montantDon">Quel montant souhaitez-vous donner?</p>
+                        <p class="recapDon__montantDonChoix"></p>
+                        <p class="recapDon__fraisAdmin">Je souhaite couvrir les frais d'administration de 3$</p>
+                        <p class="recapDon__fraisAdminChoix"></p>
+                        <p class="recapDon__montantTotal">Montant total</p>
+                        <p class="recapDon__montantTotalChoix"></p>
+                    </fieldset>
+                    <fieldset class="recapDonateur">
+                        <legend class="recapDonateur__titre">Donateur</legend>
+                        <p class="recapDonateur__typeDonateur">Type de donateur</p>
+                        <p class="recapDonateur__typeDonateurChoix"></p>
+                        <fieldset class="ctn_recap">
+                            <p class="recapDonateur__nom">Nom: </p>
+                            <p class="recapDonateur__nomChoix"></p>
+                        </fieldset>
+
+                        <fieldset class="ctn_recap">
+                            <p class="recapDonateur__prenom">Prénom: </p>
+                            <p class="recapDonateur__prenomChoix"></p>
+                        </fieldset>
+
+                        <fieldset class="ctn_recap">
+                             <p class="recapDonateur__courriel">Courriel: </p>
+                             <p class="recapDonateur__courrielChoix"></p>
+                        </fieldset>
+
+                        <div class="recapEntreprise screen-reader-only">
+                            <fieldset class="ctn_recap">
+                                <p class="recapEntreprise__titre">Titre: </p>
+                                <p class="recapEntreprise__titreChoix"></p>
+                            </fieldset>
+
+                            <fieldset class="ctn_recap">
+                                <p class="recapEntreprise__societe">Entreprise: </p>
+                                <p class="recapEntreprise__societeChoix"></p>
+                            </fieldset>
+
+                        </div>
+                        <fieldset class="ctn_recap">
+                            <p class="recapDonateur__typeTel">Type de téléphone: </p>
+                            <p class="recapDonateur__typeTelChoix"></p>
+                        </fieldset>
+
+                        <fieldset class="ctn_recap">
+                            <p class="recapDonateur__numTel">Numéro de téléphone: </p>
+                            <p class="recapDonateur__numTelChoix"></p>
+                        </fieldset>
+
+                        <fieldset class="ctn_recap">
+                            <p class="recapDonateur__adresse">Adresse: </p>
+                            <p class="recapDonateur__adresseChoix"></p>
+                        </fieldset>
+
+                        <fieldset class="ctn_recap">
+                            <p class="recapDonateur__province">Province: </p>
+                            <p class="recapDonateur__provinceChoix"></p>
+                        </fieldset>
+
+                        <fieldset class="ctn_recap">
+                            <p class="recapDonateur__pays">Pays: </p>
+                            <p class="recapDonateur__paysChoix"></p>
+                        </fieldset>
+
+                        <fieldset class="ctn_recap">
+                            <p class="recapDonateur__codePostal">Code postal: </p>
+                            <p class="recapDonateur__codePostalChoix"></p>
+                        </fieldset>
+
+                        <fieldset class="ctn_recap">
+                            <p class="recapDonateur__ville">Ville: </p>
+                            <p class="recapDonateur__villeChoix"></p>
+                        </fieldset>
+
+                        <p class="recapDonateur__nouvelles">Je souhaite recevoir l'infolettre de l'organisme.</p>
+                        <p class="recapDonateur__nouvellesChoix"></p>
+                    </fieldset>
+                    <fieldset class="recapPaiement">
+                        <legend class="recapPaiement__titre">Paiement</legend>
+
+                        <p class="recapPrelevement__typePaiement">Type de paiement</p>
+                        <p class="recapPrelevement__typePaiementP"></p>
+
+                        <div class="recapCarteCredit">
+                            <fieldset>
+                                <p class="recapCarteCredit__paiementNom">Nom: </p>
+                                <p class="recapCarteCredit__paiementNomChoix"></p>
+                            </fieldset>
+
+                            <fieldset>
+                                <p class="recapCarteCredit__numCarte">Numéro carte de crédit: </p>
+                                <p class="recapCarteCredit__numCarteChoix"></p>
+                            </fieldset>
+
+                            <fieldset>
+                                <p class="recapCarteCredit__expiration">Expiration: </p>
+                                <p class="recapCarteCredit__expirationChoix"><span class="recapCarteCredit__expirationMoisChoix"></span>/<span class="recapCarteCredit__expirationAnneeChoix"></span></p>
+                            </fieldset>
+                            <fieldset>
+                                <p class="recapCarteCredit__cvv">CVV: </p>
+                                <p class="recapCarteCredit__cvvChoix"></p>
+                            </fieldset>
+                        </div>
+                        <div class="recapPaypal screen-reader-only">
+                            <p>Payer sur Paypal</p>
+                        </div>
+                        <div class="recapPrelevementBancaire screen-reader-only">
+
+                            <fieldset>
+                                <p class="recapPrelevement__banque">Institution financière: </p>
+                                <p class="recapPrelevement__banqueChoix"></p>
+                            </fieldset>
+
+                            <fieldset>
+                                <p class="recapPrelevement__numTransit">Numéro de transit: </p>
+                                <p class="recapPrelevement__numTransitChoix"></p>
+                            </fieldset>
+
+                            <fieldset>
+                                <p class="recapPrelevement__numInstitution">Numéro d'institution: </p>
+                                <p class="recapPrelevement__numInstitutionChoix"></p>
+                            </fieldset>
+
+                            <fieldset>
+                                <p class="recapPrelevement__numCompte">Numéro de compte: </p>
+                                <p class="recapPrelevement__numCompteChoix"></p>
+                            </fieldset>
+                        </div>
+                        <p class="retroactionFinale"></p>
+                    </fieldset>
+                    <button class="btnEtapePrecedente" type="button" id="retourEtapeTrois">Étape 3</button>
+                    <button class="btnEtapeSuivante" type="submit" id="validationFinale">Procéder au paiement</button>
+                </fieldset>
+            </form>
+
+	</main>
+
+	<footer class="footer" role="contentinfo">
+	    <p class="footer__copyright">© <time>2023</time> - Anaïs Mannée-Batschy</p>
+	    <p class="footer__p">Photo de <a class="footer__lien" href="https://unsplash.com/fr/@jmuniz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joel Muniz</a> sur <a class="footer__lien" href="https://unsplash.com/fr/photos/3k3l2brxmwQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+		<p class="footer__p">Réalisé dans le cadre du cours de Réalisations de produits numériques interactifs 3
+           <br>Cégep de Sainte-Foy</p>
+	</footer>
+
+	<script src="liaisons/js/btnRadio_effets.js" ></script>
+    <script src="liaisons/js/validation_formulaire.js" ></script>
+    <script>
+        validation_formulaire.chargeJSON("liaisons/js/objJSONMessages.json")
+    </script>
+</body>
+
+</html>
