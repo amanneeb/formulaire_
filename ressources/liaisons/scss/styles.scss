@@ -99,9 +99,6 @@ html{
   align-items: flex-start;
 }
 
-.menu{
-  height: 4em;
-}
 .header{
   //background-image: url("public/liaisons/images/image_entete.jpg");
   background-image: url("../images/image_entete.jpg");
@@ -165,7 +162,8 @@ h3{
     margin-right: 10px;
     background-color: transparent;
     color: $brun;
-    border: none;
+    border: $brun solid 1.7px;
+    padding: 5px 5px;
   }
 }
 
@@ -304,13 +302,12 @@ form,
   justify-content: flex-start;
   align-items: stretch;
   border: none;
-  border-bottom: $brun dashed 1px ;
   max-width: 100%;
+  margin: 1em 0;
 }
 .don,
 .donateur,
-.paiement,
-/*.recapitulatif*/ {
+.paiement {
   border: $brun solid 1.3px;
   border-radius: 5px;
   box-shadow: rgba(0, 0, 0, 0.1) 3px 3px;
@@ -621,6 +618,34 @@ p img{
   }
   &__p{
     text-align: center;
-}
+  }
+  &__lien{
+    color: $blanc;
+  }
 }
 
+// Mise en page de la page Confirmation
+.confirmation__body{
+  position: relative;
+  & .icone{
+    display: block;
+    text-align: center;
+    position: relative;
+    top: 5px;
+    left: 48%;
+  }
+  & h1{
+    color: $vertFonce;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  & p{
+    text-align: center;
+  }
+  & .lien{
+    display: block;
+    text-align: center;
+  }
+}
