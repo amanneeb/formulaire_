@@ -2,12 +2,31 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="liaisons/css/styles.css">
   <title>Confirmation</title>
 </head>
-<body>
-    <h1>Merci!</h1>
-    <img src="liaisons/images/formulaire_complete.svg" alt="Validé">
-    <p>Votre paiement a bien été reçu</p>
-    <p>Vous recevrez une confirmation par courriel</p>
+<body class="confirmation__body">
+    <a href="#contenu" class="visuallyhidden focusable">Allez au contenu</a>
+    <header role="banner">
+        <nav class="menu" role="navigation">
+            <img class="menu__img" src="liaisons/images/logo_petitFormat.svg" width="100" alt="">
+            <button class="menu__btn">Menu</button>
+        </nav>
+        <div class="header"></div>
+    </header>
+    <main>
+        <img class="icone" src="liaisons/images/formulaire_complete.svg" alt="Validé">
+        <h1>Merci!</h1>
+        <p>Votre paiement a bien été reçu.</p>
+        <p>Vous recevrez une confirmation par courriel.</p>
+        <a class="lien" href="index.html">Retourner au formulaire</a>
+    </main>
+    <footer class="footer" role="contentinfo">
+    	    <p class="footer__copyright">© <time>2023</time> - Anaïs Mannée-Batschy</p>
+    	    <p class="footer__p">Photo de <a class="footer__lien" href="https://unsplash.com/fr/@jmuniz?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Joel Muniz</a> sur <a class="footer__lien" href="https://unsplash.com/fr/photos/3k3l2brxmwQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></p>
+    		<p class="footer__p">Réalisé dans le cadre du cours de Réalisations de produits numériques interactifs 3
+               <br>Cégep de Sainte-Foy</p>
+    	</footer>
 </body>
 </html>
