@@ -731,10 +731,6 @@ html {
   align-items: flex-start;
 }
 
-.menu {
-  height: 4em;
-}
-
 .header {
   background-image: url("../images/image_entete.jpg");
   background-position: center;
@@ -801,7 +797,8 @@ h3 {
   margin-right: 10px;
   background-color: transparent;
   color: #5D4A15;
-  border: none;
+  border: #5D4A15 solid 1.7px;
+  padding: 5px 5px;
 }
 
 .ctn_boutons {
@@ -944,8 +941,8 @@ form,
   justify-content: flex-start;
   align-items: stretch;
   border: none;
-  border-bottom: #5D4A15 dashed 1px;
   max-width: 100%;
+  margin: 1em 0;
 }
 
 .don,
@@ -1261,6 +1258,34 @@ p img {
   text-align: center;
 }
 .footer__p {
+  text-align: center;
+}
+.footer__lien {
+  color: #fff;
+}
+
+.confirmation__body {
+  position: relative;
+}
+.confirmation__body .icone {
+  display: block;
+  text-align: center;
+  position: relative;
+  top: 5px;
+  left: 48%;
+}
+.confirmation__body h1 {
+  color: #8C952D;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.confirmation__body p {
+  text-align: center;
+}
+.confirmation__body .lien {
+  display: block;
   text-align: center;
 }
 
